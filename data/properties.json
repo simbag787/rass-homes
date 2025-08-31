@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "title": "Luxury Apartment",
+    "description": "Exquisite modern apartment in the heart of the city",
+    "price": "$500,000",
+    "status": "Available",
+    "lat": 47.748817,
+    "lng": -121.985428,
+    "images": [
+      "https://picsum.photos/400/300?random=1",
+      "https://picsum.photos/400/300?random=11",
+      "https://picsum.photos/400/300?random=21"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Family Mansion",
+    "description": "Opulent residence with sprawling gardens",
+    "price": "$750,000",
+    "status": "Under Construction",
+    "lat": 47.758896,
+    "lng": -121.98513,
+    "images": [
+      "https://picsum.photos/400/300?random=2",
+      "https://picsum.photos/400/300?random=12"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Beachfront Villa",
+    "description": "Breathtaking estate with private beach access",
+    "price": "$1,200,000",
+    "status": "Sold",
+    "lat": 47.712776,
+    "lng": -122.005974,
+    "images": [
+      "https://picsum.photos/400/300?random=3",
+      "https://picsum.photos/400/300?random=13",
+      "https://picsum.photos/400/300?random=23"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Coastal Manor",
+    "description": "Majestic manor with panoramic ocean views",
+    "price": "$1,200,000",
+    "status": "Available",
+    "lat": 47.73061,
+    "lng": -121.935242,
+    "images": [
+      "https://picsum.photos/400/300?random=3",
+      "https://picsum.photos/400/300?random=13",
+      "https://picsum.photos/400/300?random=23"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Penthouse Suite",
+    "description": "Exclusive penthouse with skyline vistas",
+    "price": "$1,200,000",
+    "status": "Under Construction",
+    "lat": 47.75493,
+    "lng": -121.984019,
+    "images": [
+      "https://picsum.photos/400/300?random=3",
+      "https://picsum.photos/400/300?random=13",
+      "https://picsum.photos/400/300?random=23"
+    ]
+  }
+]

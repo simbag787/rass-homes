@@ -1,3 +1,5 @@
+import {MapSection} from "../components/MapSection";
+
 export default function Home() {
-  return <h1>Welcome to Rass Homes!</h1>;
+  return <MapSection />;
 }

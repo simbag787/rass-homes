@@ -7,6 +7,47 @@ body, html, #root, .App {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.property-card {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  align-items: center;
+  gap: 10px;
+}
+
+.property-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 16px;
+  width: 200px;
+  align-items: start;
+}
+
+.property-image {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.property-button {
+  border: none;
+  border-radius: 5px;
+  background-color: #1772d0;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  align-self: center;
+}
+
+.property-button:hover {
+  background-color: #0f5bb5;
+}
+
 #__next {
   height: 100%;
 }
