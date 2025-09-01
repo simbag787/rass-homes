@@ -425,3 +425,95 @@ li {
   transform: translateY(0%);
   opacity: 1;
 }
+
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(44, 44, 44, 0.1);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #222;
+}
+
+.contact-container h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #444;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #e5e2dc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #f7f6f3;
+  color: #222;
+}
+
+input:focus, textarea:focus {
+  border-color: #bfa98c;
+  box-shadow: 0 0 0 3px rgba(191, 169, 140, 0.2);
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #bfa98c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(44, 44, 44, 0.08);
+}
+
+button:hover {
+  background: #444;
+  color: #bfa98c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(44, 44, 44, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(44, 44, 44, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
+}

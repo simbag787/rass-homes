@@ -21,10 +21,10 @@ const MenuBar = (props) => {
                  onClick={clickHandler}>
                     Our Projects
             </div>
-            <div id="about-us"
-                 className={props.active === "about-us" ? "active" : ""}
+            <div id="contact-us"
+                 className={props.active === "contact-us" ? "active" : ""}
                  onClick={clickHandler}>
-                    About Us
+                    Contact Us
             </div>
         </div>
     )

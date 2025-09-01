@@ -45,10 +45,10 @@ export const Navbar = () => {
               <Link href="/" id="home">Our Projects</Link>
             </li>
             <li
-              className={active === "about-us" ? "active" : ""}
-              onClick={() => clickHandler("about-us")}
+              className={active === "contact-us" ? "active" : ""}
+              onClick={() => clickHandler("contact-us")}
             >
-              <Link href="/about-us" id="about-us">About Us</Link>
+              <Link href="/contact-us" id="contact-us">Contact Us</Link>
             </li>
           </ul>
           <Image
