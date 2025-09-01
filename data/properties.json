@@ -67,5 +67,72 @@
       "https://picsum.photos/400/300?random=13",
       "https://picsum.photos/400/300?random=23"
     ]
-  }
+  },
+    {
+        "id": 6,
+        "title": "Urban Loft",
+        "description": "Chic loft in a vibrant downtown neighborhood",
+        "price": "$600,000",
+        "status": "Sold",
+        "lat": 47.7625,
+        "lng": -121.9875,
+        "images": [
+        "https://picsum.photos/400/300?random=6",
+        "https://picsum.photos/400/300?random=16"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Suburban Home",
+        "description": "Comfortable family home in a quiet suburb",
+        "price": "$400,000",
+        "status": "Available",
+        "lat": 47.745,
+        "lng": -121.975,
+        "images": [
+        "https://picsum.photos/400/300?random=7",
+        "https://picsum.photos/400/300?random=17",
+        "https://picsum.photos/400/300?random=27"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Country Cottage",
+        "description": "Cozy cottage surrounded by nature",
+        "price": "$350,000",
+        "status": "Under Construction",
+        "lat": 47.735,
+        "lng": -121.965,
+        "images": [
+        "https://picsum.photos/400/300?random=8",
+        "https://picsum.photos/400/300?random=18"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Modern Townhouse",
+        "description": "Sleek townhouse with contemporary design",
+        "price": "$450,000",
+        "status": "Available",
+        "lat": 47.755,
+        "lng": -121.995,
+        "images": [
+        "https://picsum.photos/400/300?random=9",
+        "https://picsum.photos/400/300?random=19",
+        "https://picsum.photos/400/300?random=29"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Historic Estate",
+        "description": "Grand estate with rich history and character",
+        "price": "$1,500,000",
+        "status": "Sold",
+        "lat": 47.720,
+        "lng": -121.980,
+        "images": [
+        "https://picsum.photos/400/300?random=10",
+        "https://picsum.photos/400/300?random=20"
+        ]
+    }
 ]

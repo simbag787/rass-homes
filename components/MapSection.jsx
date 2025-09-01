@@ -1,7 +1,7 @@
 import { GoogleMap, LoadScript, Marker, InfoBox } from '@react-google-maps/api';
 import React from 'react';
 import properties from '../data/properties.json';
-import { PropertyCard } from './PropertyCard';
+import { PropertyCardMap } from './PropertyCardMap';
 import Link from 'next/link';
 
 export const MapSection = () => {
@@ -99,86 +99,88 @@ export const MapSection = () => {
   const [mapCenter, setMapCenter] = React.useState(center);
 
   return (
-    <LoadScript
-      googleMapsApiKey="AIzaSyDgDtxwsgerBru8KAWc9YjLj0qnFC9yc1Q"
-      libraries={['geometry']}
-      onLoad={() => {
-        if (window.google && window.google.maps) setGoogleLoaded(true);
-      }}
-    >
-      {googleLoaded ? (
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          center={mapCenter}
-          zoom={12}
-          options={{ styles: mapStyles }}
-          onLoad={(map) => {
-            mapRef.current = map;
-          }}
-          onDragEnd={() => {
-            if (mapRef.current) {
-              const newCenter = mapRef.current.getCenter();
-              setMapCenter({
-                lat: newCenter.lat(),
-                lng: newCenter.lng(),
-              });
-            }
-          }}
-        >
-          {properties.map((property, i) => {
-            return (
-              <Marker
-                key={property.id}
-                position={{ lat: property.lat, lng: property.lng }}
-                onMouseOver={() => {
-                  setMarkerHoveredId(property.id)
-                }
-                }
-                onMouseOut={() => {
-                  setTimeout(() => {
-                    setMarkerHoveredId(null);
-                  }, 200);
-                }}
-                icon={{
-                  path: window.google.maps.SymbolPath.CIRCLE, // built-in circle
-                  fillColor: (markerHoveredId === property.id || boxHoveredId === property.id) ? "#ff5252" : "#4285F4", // red on hover, blue otherwise
-                  fillOpacity: 1,
-                  strokeColor: "#fff",
-                  strokeWeight: 2,
-                  scale: 10, // radius of circle (in px)
-                }}
-              >
-                {(property.id == boxHoveredId || markerHoveredId == property.id) && (
-                  <InfoBox
-                    key={i}
-                    defaultPosition={new window.google.maps.LatLng(property.lat, property.lng)}
-                    options={{
-                      pixelOffset: new window.google.maps.Size(-140, 0),
-                      alignBottom: true,
-                      closeBoxURL: '',
-                      enableEventPropagation: true,
-                      disableAutoPan: true,
-                    }}
-                  >
-                    <div
-                      onMouseEnter={() => setBoxHoveredId(property.id)}
-                      onMouseLeave={() => setBoxHoveredId(null)}
-                      style={{ textDecoration: 'none' }}
+    <div className='map-section' id="map-section">
+      <LoadScript
+        googleMapsApiKey="AIzaSyDgDtxwsgerBru8KAWc9YjLj0qnFC9yc1Q"
+        libraries={['geometry']}
+        onLoad={() => {
+          if (window.google && window.google.maps) setGoogleLoaded(true);
+        }}
+      >
+        {googleLoaded ? (
+          <GoogleMap
+            mapContainerStyle={mapContainerStyle}
+            center={mapCenter}
+            zoom={12}
+            options={{ styles: mapStyles }}
+            onLoad={(map) => {
+              mapRef.current = map;
+            }}
+            onDragEnd={() => {
+              if (mapRef.current) {
+                const newCenter = mapRef.current.getCenter();
+                setMapCenter({
+                  lat: newCenter.lat(),
+                  lng: newCenter.lng(),
+                });
+              }
+            }}
+          >
+            {properties.map((property, i) => {
+              return (
+                <Marker
+                  key={property.id}
+                  position={{ lat: property.lat, lng: property.lng }}
+                  onMouseOver={() => {
+                    setMarkerHoveredId(property.id)
+                  }
+                  }
+                  onMouseOut={() => {
+                    setTimeout(() => {
+                      setMarkerHoveredId(null);
+                    }, 200);
+                  }}
+                  icon={{
+                    path: window.google.maps.SymbolPath.CIRCLE, // built-in circle
+                    fillColor: (markerHoveredId === property.id || boxHoveredId === property.id) ? "#ff5252" : "#4285F4", // red on hover, blue otherwise
+                    fillOpacity: 1,
+                    strokeColor: "#fff",
+                    strokeWeight: 2,
+                    scale: 10, // radius of circle (in px)
+                  }}
+                >
+                  {(property.id == boxHoveredId || markerHoveredId == property.id) && (
+                    <InfoBox
+                      key={i}
+                      defaultPosition={new window.google.maps.LatLng(property.lat, property.lng)}
+                      options={{
+                        pixelOffset: new window.google.maps.Size(-140, 0),
+                        alignBottom: true,
+                        closeBoxURL: '',
+                        enableEventPropagation: true,
+                        disableAutoPan: true,
+                      }}
                     >
-                      <Link href={`/about-us`} style={{ textDecoration: 'none' }}>
-                        <PropertyCard property={property} />
-                      </Link>
-                    </div>
-                  </InfoBox>
-                )}
-              </Marker>
-            );
-          })}
-        </GoogleMap>
-      ) : (
-        <div>Loading map...</div>
-      )}
-    </LoadScript>
+                      <div
+                        onMouseEnter={() => setBoxHoveredId(property.id)}
+                        onMouseLeave={() => setBoxHoveredId(null)}
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <Link href={`/about-us`} style={{ textDecoration: 'none' }}>
+                          <PropertyCardMap property={property} />
+                        </Link>
+                      </div>
+                    </InfoBox>
+                  )}
+                </Marker>
+              );
+            })}
+          </GoogleMap>
+        ) : (
+          <div>Loading map...</div>
+        )}
+      </LoadScript>
+    </div>
   );
 };
 

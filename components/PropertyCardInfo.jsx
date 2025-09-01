@@ -1,7 +1,7 @@
 
-export const PropertyCard = ({ property, onOpen }) => {
+export const PropertyCardInfo = ({ property, onOpen }) => {
   return (
-    <div className="property-card">
+    <div className="property-card-info">
       <img src={property.images[0]} alt={property.title} className="property-image"></img>
       <div className="property-info">
         <div>

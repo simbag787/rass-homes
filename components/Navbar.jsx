@@ -33,11 +33,10 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="nav-container">
         <div className="navbar">
-          <h1 onClick={() => clickHandler("home")} className="title">
+          <h2 onClick={() => clickHandler("home")} className="title">
             <Link href="/">Rass Homes</Link>
-          </h1>
+          </h2>
           <ul>
             <li
               className={active === "home" ? "active" : ""}
@@ -59,7 +58,6 @@ export const Navbar = () => {
             className="menu-icon"
           />
         </div>
-      </div>
       <MenuBar active={active} clickHandler={clickHandler} show={showMenu} />
     </>
   );
