@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import menu from "../public/menu.svg";
@@ -15,50 +14,79 @@ export const Navbar = () => {
     setActive(path);
   }, [router.pathname]);
 
-  const clickHandler = (id) => {
-    setActive(id);
+  const scrollToProjects = () => {
+    const navbar = document.querySelector(".navbar");
+    const mapSection = document.getElementById("map-section");
+    if (mapSection) {
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const sectionTop =
+        mapSection.getBoundingClientRect().top +
+        window.scrollY -
+        navbarHeight;
+
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
+    }
+  };
+
+  const handleProjectsClick = async (e) => {
+    e.preventDefault();
+    setActive("home");
     setShowMenu(false);
+
+    if (router.pathname === "/") {
+      // already on homepage → just scroll
+      scrollToProjects();
+    } else {
+      // navigate home first, then scroll after render
+      await router.push("/");
+      requestAnimationFrame(() => {
+        scrollToProjects();
+      });
+    }
   };
 
   const toggleMenuBar = () => {
-		if (!showMenu) {
-			let menubar = document.querySelector(".menu-bar")
-      menubar.classList.add('show-menu-bar')
-		} else {
-			let menubar = document.querySelector(".menu-bar")
-      menubar.classList.remove('show-menu-bar')
-		}
+    let menubar = document.querySelector(".menu-bar");
+    if (!showMenu) {
+      menubar.classList.add("show-menu-bar");
+    } else {
+      menubar.classList.remove("show-menu-bar");
+    }
     setShowMenu((showMenu) => !showMenu);
   };
 
   return (
     <>
-        <div className="navbar">
-          <h2 onClick={() => clickHandler("home")} className="title">
-            <Link href="/">Rass Homes</Link>
-          </h2>
-          <ul>
-            <li
-              className={active === "home" ? "active" : ""}
-              onClick={() => clickHandler("home")}
-            >
-              <Link href="/" id="home">Our Projects</Link>
-            </li>
-            <li
-              className={active === "contact-us" ? "active" : ""}
-              onClick={() => clickHandler("contact-us")}
-            >
-              <Link href="/contact-us" id="contact-us">Contact Us</Link>
-            </li>
-          </ul>
-          <Image
-            src={menu}
-            alt="menu"
-            onClick={toggleMenuBar}
-            className="menu-icon"
-          />
-        </div>
-      <MenuBar active={active} clickHandler={clickHandler} show={showMenu} />
+      <div className="navbar">
+        <h2 className="title">
+          {/* logo scrolls to projects instead of Link */}
+          <a href="/">
+            Rass Homes
+          </a>
+        </h2>
+        <ul>
+          <li className={active === "home" ? "active" : ""}>
+            <a href="/" id="home" onClick={handleProjectsClick}>
+              Our Projects
+            </a>
+          </li>
+          <li
+            className={active === "contact-us" ? "active" : ""}
+            onClick={() => setActive("contact-us")}
+          >
+            <a href="/contact-us" id="contact-us">
+              Contact Us
+            </a>
+          </li>
+        </ul>
+        <Image
+          src={menu}
+          alt="menu"
+          onClick={toggleMenuBar}
+          className="menu-icon"
+        />
+      </div>
+      <MenuBar active={active} clickHandler={setActive} show={showMenu} />
     </>
   );
 };

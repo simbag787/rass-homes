@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { MapSection } from "../components/MapSection";
 import { PropertiesInfo } from "../components/PropertiesInfo";
 import Hero from "../components/Hero";
-import Footer from "../components/Footer";
 
 export default function Home() {
   const [homeHeight, setHomeHeight] = useState("100vh"); // default
@@ -28,7 +27,6 @@ export default function Home() {
           <PropertiesInfo />
         </div>
       </div>
-      <Footer />
     </>
 
   );
