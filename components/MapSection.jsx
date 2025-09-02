@@ -1,7 +1,7 @@
 import { GoogleMap, LoadScript, Marker, InfoBox } from '@react-google-maps/api';
 import React from 'react';
 import properties from '../data/properties.json';
-import { PropertyCardMap } from './PropertyCardMap';
+import { PropertyCard } from './PropertyCard';
 import Link from 'next/link';
 
 export const MapSection = () => {
@@ -167,7 +167,7 @@ export const MapSection = () => {
                         style={{ textDecoration: 'none' }}
                       >
                         <Link href={`/property/${property.address.toLowerCase().replaceAll(' ', '-').replace(',', '')}`} style={{ textDecoration: 'none' }}>
-                          <PropertyCardMap property={property} />
+                          <PropertyCard property={property} variant={"map"} />
                         </Link>
                       </div>
                     </InfoBox>

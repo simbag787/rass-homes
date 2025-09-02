@@ -9,6 +9,9 @@ body, html, #root, .App {
   color: #222;
   scroll-behavior: smooth !important;
 }
+.main-content {
+  flex: 1; /* this pushes footer down */
+}
 
 .App {
   min-height: 100vh;
@@ -626,4 +629,59 @@ button:active {
   .property-page {
     flex-direction: column;
   }
+}
+
+/* Main gallery image */
+.image-gallery-slide img {
+  border-radius: 12px;
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
+  background: none;
+  box-shadow: 0 4px 12px rgba(44, 44, 44, 0.12);
+  border: 1px solid #e5e2dc;
+}
+
+/* Arrow buttons */
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  top: 50%;
+  transform: translateY(-50%); /* keep arrows centered vertically */
+  background: none !important;
+  color: #444 !important; /* match theme */
+  font-size: 1.6rem !important; /* smaller arrow size */
+  padding: 0 6px;
+  transition: color 0.2s ease;
+}
+
+.image-gallery-left-nav:hover,
+.image-gallery-right-nav:hover {
+  color: #bfa98c !important;
+}
+
+/* Arrow icons (remove any weird background or drop effect) */
+.image-gallery-icon {
+  background: none !important;
+  box-shadow: none !important;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Thumbnails */
+.image-gallery-thumbnail {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.image-gallery-thumbnail img {
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.image-gallery-thumbnail:hover,
+.image-gallery-thumbnail.active {
+  border-color: #bfa98c;
 }

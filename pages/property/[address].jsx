@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import properties from "../../data/properties.json"; // adjust path
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function PropertyPage() {
   const router = useRouter();
@@ -7,19 +9,24 @@ export default function PropertyPage() {
 
   // find property by address
   const property = properties.find(
-    (p) => p.address.toLowerCase().replaceAll(' ', '-').replace(',', '') === address
+    (p) =>
+      p.address.toLowerCase().replaceAll(" ", "-").replace(",", "") === address
   );
 
   if (!property) {
     return <div>Property not found.</div>;
   }
 
+  // format images for gallery
+  const galleryItems = property.images.map((img) => ({
+    original: img,
+    thumbnail: img,
+  }));
+
   return (
     <div className="property-page">
       <div className="property-images">
-        {property.images.map((img, index) => (
-          <img key={index} src={img} alt={`${property.title}-${index}`} />
-        ))}
+        <ImageGallery items={galleryItems} showPlayButton={false} />
       </div>
       <div className="property-details">
         <h1>{property.title}</h1>
