@@ -33,31 +33,31 @@ export const Navbar = () => {
 
   return (
     <>
-        <div className="navbar">
-          <h2 onClick={() => clickHandler("home")} className="title">
-            <Link href="/">Rass Homes</Link>
-          </h2>
-          <ul>
-            <li
-              className={active === "home" ? "active" : ""}
-              onClick={() => clickHandler("home")}
-            >
-              <Link href="/" id="home">Our Projects</Link>
-            </li>
-            <li
-              className={active === "contact-us" ? "active" : ""}
-              onClick={() => clickHandler("contact-us")}
-            >
-              <Link href="/contact-us" id="contact-us">Contact Us</Link>
-            </li>
-          </ul>
-          <Image
-            src={menu}
-            alt="menu"
-            onClick={toggleMenuBar}
-            className="menu-icon"
-          />
-        </div>
+      <div className="navbar">
+        <h2 onClick={() => clickHandler("home")} className="title">
+          <Link href="/">Rass Homes</Link>
+        </h2>
+        <ul>
+          <li
+            className={active === "home" ? "active" : ""}
+            onClick={() => clickHandler("home")}
+          >
+            <a href="/#map-section" id="home">Our Projects</a>
+          </li>
+          <li
+            className={active === "contact-us" ? "active" : ""}
+            onClick={() => clickHandler("contact-us")}
+          >
+            <Link href="/contact-us" id="contact-us">Contact Us</Link>
+          </li>
+        </ul>
+        <Image
+          src={menu}
+          alt="menu"
+          onClick={toggleMenuBar}
+          className="menu-icon"
+        />
+      </div>
       <MenuBar active={active} clickHandler={clickHandler} show={showMenu} />
     </>
   );
