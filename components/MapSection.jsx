@@ -166,7 +166,7 @@ export const MapSection = () => {
                         onMouseLeave={() => setBoxHoveredId(null)}
                         style={{ textDecoration: 'none' }}
                       >
-                        <Link href={`/contact-us`} style={{ textDecoration: 'none' }}>
+                        <Link href={`/property/${property.address.toLowerCase().replaceAll(' ', '-').replace(',', '')}`} style={{ textDecoration: 'none' }}>
                           <PropertyCardMap property={property} />
                         </Link>
                       </div>

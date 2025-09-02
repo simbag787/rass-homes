@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Luxury Apartment",
+    "address": "123 Main St, Cityville",
     "description": "Exquisite modern apartment in the heart of the city",
     "price": "$500,000",
     "status": "Available",
@@ -16,6 +17,7 @@
   {
     "id": 2,
     "title": "Family Mansion",
+    "address": "456 Oak Dr, Townsville",
     "description": "Opulent residence with sprawling gardens",
     "price": "$750,000",
     "status": "Under Construction",
@@ -29,6 +31,7 @@
   {
     "id": 3,
     "title": "Beachfront Villa",
+    "address": "789 Ocean Blvd, Beachtown",
     "description": "Breathtaking estate with private beach access",
     "price": "$1,200,000",
     "status": "Sold",
@@ -43,6 +46,7 @@
   {
     "id": 4,
     "title": "Coastal Manor",
+    "address": "321 Shoreline Dr, Seaside",
     "description": "Majestic manor with panoramic ocean views",
     "price": "$1,200,000",
     "status": "Available",
@@ -57,6 +61,7 @@
   {
     "id": 5,
     "title": "Penthouse Suite",
+    "address": "654 Skyline Ave, Metropolis",
     "description": "Exclusive penthouse with skyline vistas",
     "price": "$1,200,000",
     "status": "Under Construction",
@@ -71,6 +76,7 @@
     {
         "id": 6,
         "title": "Urban Loft",
+        "address": "987 Center St, Downtown",
         "description": "Chic loft in a vibrant downtown neighborhood",
         "price": "$600,000",
         "status": "Sold",
@@ -84,6 +90,7 @@
     {
         "id": 7,
         "title": "Suburban Home",
+        "address": "159 Maple St, Suburbia",
         "description": "Comfortable family home in a quiet suburb",
         "price": "$400,000",
         "status": "Available",
@@ -98,6 +105,7 @@
     {
         "id": 8,
         "title": "Country Cottage",
+        "address": "753 Pine Ln, Countryside",
         "description": "Cozy cottage surrounded by nature",
         "price": "$350,000",
         "status": "Under Construction",
@@ -111,6 +119,7 @@
     {
         "id": 9,
         "title": "Modern Townhouse",
+        "address": "852 Cedar Ct, Urbanville",
         "description": "Sleek townhouse with contemporary design",
         "price": "$450,000",
         "status": "Available",
@@ -125,6 +134,7 @@
     {
         "id": 10,
         "title": "Historic Estate",
+        "address": "951 Heritage Rd, Oldtown",
         "description": "Grand estate with rich history and character",
         "price": "$1,500,000",
         "status": "Sold",

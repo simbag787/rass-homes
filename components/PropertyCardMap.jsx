@@ -1,5 +1,9 @@
-
-export const PropertyCardMap = ({ property, onOpen }) => {
+import { useRouter } from "next/router";
+export const PropertyCardMap = ({ property }) => {
+  const router = useRouter();
+  const clickHandler = () => {
+    router.push(`/property/${property.address.toLowerCase().replaceAll(' ', '-').replace(',', '')}`);
+  }
   return (
     <div className="property-card-map">
       <img src={property.images[0]} alt={property.title} className="property-image-map"></img>
@@ -16,7 +20,7 @@ export const PropertyCardMap = ({ property, onOpen }) => {
         <div>
           {property.price}
         </div>
-        <button className="property-button-map" onClick={() => onOpen(property)}>View Details</button>
+        <button className="property-button-map" onClick={clickHandler}>View Details</button>
       </div>
     </div>
   );
