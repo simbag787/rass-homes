@@ -6,13 +6,11 @@ import MenuBar from "./MenuBar";
 
 export const Navbar = () => {
   const router = useRouter();
-  const [active, setActive] = useState("home");
   const [showMenu, setShowMenu] = useState(false);
 
-  useEffect(() => {
-    const path = router.pathname === "/" ? "home" : router.pathname.slice(1);
-    setActive(path);
-  }, [router.pathname]);
+  // compute active from router
+  const path = router.pathname === "/" ? "home" : router.pathname.slice(1);
+  const active = path;
 
   const scrollToProjects = () => {
     const navbar = document.querySelector(".navbar");
@@ -20,24 +18,18 @@ export const Navbar = () => {
     if (mapSection) {
       const navbarHeight = navbar ? navbar.offsetHeight : 0;
       const sectionTop =
-        mapSection.getBoundingClientRect().top +
-        window.scrollY -
-        navbarHeight;
-
+        mapSection.getBoundingClientRect().top + window.scrollY - navbarHeight;
       window.scrollTo({ top: sectionTop, behavior: "smooth" });
     }
   };
 
   const handleProjectsClick = async (e) => {
     e.preventDefault();
-    setActive("home");
     setShowMenu(false);
 
     if (router.pathname === "/") {
-      // already on homepage → just scroll
       scrollToProjects();
     } else {
-      // navigate home first, then scroll after render
       await router.push("/");
       requestAnimationFrame(() => {
         scrollToProjects();
@@ -52,17 +44,14 @@ export const Navbar = () => {
     } else {
       menubar.classList.remove("show-menu-bar");
     }
-    setShowMenu((showMenu) => !showMenu);
+    setShowMenu(!showMenu);
   };
 
   return (
     <>
       <div className="navbar">
         <h2 className="title">
-          {/* logo scrolls to projects instead of Link */}
-          <a href="/">
-            Rass Homes
-          </a>
+          <a href="/">Rass Homes</a>
         </h2>
         <ul>
           <li className={active === "home" ? "active" : ""}>
@@ -70,23 +59,28 @@ export const Navbar = () => {
               Our Projects
             </a>
           </li>
-          <li
-            className={active === "contact-us" ? "active" : ""}
-            onClick={() => setActive("contact-us")}
-          >
-            <a href="/contact-us" id="contact-us">
+          <li className={active === "we-buy-land" ? "active" : ""}>
+            <a
+              href="/we-buy-land"
+              id="we-buy-land"
+              onClick={() => setShowMenu(false)}
+            >
+              We Buy Land
+            </a>
+          </li>
+          <li className={active === "contact-us" ? "active" : ""}>
+            <a
+              href="/contact-us"
+              id="contact-us"
+              onClick={() => setShowMenu(false)}
+            >
               Contact Us
             </a>
           </li>
         </ul>
-        <Image
-          src={menu}
-          alt="menu"
-          onClick={toggleMenuBar}
-          className="menu-icon"
-        />
+        <Image src={menu} alt="menu" onClick={toggleMenuBar} className="menu-icon" />
       </div>
-      <MenuBar active={active} clickHandler={setActive} show={showMenu} />
+      <MenuBar active={active} clickHandler={() => setShowMenu(false)} show={showMenu} />
     </>
   );
 };
