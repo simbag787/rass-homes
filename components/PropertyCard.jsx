@@ -1,7 +1,17 @@
+"use client";
 import { useRouter } from "next/router";
+import { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export const PropertyCard = ({ property, variant = "info" }) => {
   const router = useRouter();
+  const swiperRef = useRef(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   const clickHandler = () => {
     router.push(
@@ -12,23 +22,63 @@ export const PropertyCard = ({ property, variant = "info" }) => {
     );
   };
 
-  // map variant → classNames
   const cardClass =
     variant === "map" ? "property-card-map" : "property-card-info";
-  const imageClass =
-    variant === "map" ? "property-image-map" : "property-image";
   const infoClass =
     variant === "map" ? "property-info-map" : "property-info";
   const buttonClass =
     variant === "map" ? "property-button-map" : "property-button";
 
   return (
-    <div className={cardClass}>
+    <div
+      className={cardClass}
+      onMouseEnter={() => swiperRef.current?.autoplay?.start()}
+      onMouseLeave={() => swiperRef.current?.autoplay?.stop()}
+    >
+<Swiper
+  modules={[Navigation, Pagination, Autoplay]}
+  navigation={true} // <-- just true, let Swiper handle the DOM
+  pagination={{ clickable: true }}
+  autoplay={{ delay: 2500, disableOnInteraction: false }}
+  spaceBetween={10}
+  slidesPerView={1}
+  onSwiper={(swiper) => {
+    swiperRef.current = swiper;
+    swiper.autoplay.stop();
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  }}
+  onSlideChange={(swiper) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  }}
+  style={{
+    borderRadius: "12px",
+    overflow: "hidden",
+    width: "100%",
+    height: "220px",
+    position: "relative",
+  }}
+>
+  {property.images.map((url, i) => (
+    <SwiperSlide key={i}>
       <img
-        src={property.images[0]}
-        alt={property.title}
-        className={imageClass}
+        src={url}
+        alt={`${property.title}-${i}`}
+        style={{
+          width: "100%",
+          height: "220px",
+          objectFit: "cover",
+          display: "block",
+        }}
       />
+    </SwiperSlide>
+  ))}
+
+  {/* REMOVE manual arrow divs */}
+</Swiper>
+
+
       <div className={infoClass}>
         <div>{property.status}</div>
         <div>{property.title}</div>
