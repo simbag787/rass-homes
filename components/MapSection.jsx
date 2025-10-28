@@ -32,6 +32,14 @@ export const MapSection = () => {
     return "#f57c00"; // Under Construction
   };
 
+  // ✅ Function to fit map bounds to all markers
+  const fitBoundsToMarkers = (map) => {
+    if (!window.google || !properties.length) return;
+    const bounds = new window.google.maps.LatLngBounds();
+    properties.forEach((property) => bounds.extend({ lat: property.lat, lng: property.lng }));
+    map.fitBounds(bounds);
+  };
+
   return (
     <div className="map-section" id="map-section">
       <LoadScript
@@ -46,10 +54,11 @@ export const MapSection = () => {
             <GoogleMap
               mapContainerClassName="map-container"
               center={mapCenter}
-              zoom={12}
+              zoom={10}
               options={{ styles: mapStyles, fullscreenControl: false }}
               onLoad={(map) => {
                 mapRef.current = map;
+                fitBoundsToMarkers(map); // ✅ Center on all markers
               }}
               onDragEnd={() => {
                 if (mapRef.current) {

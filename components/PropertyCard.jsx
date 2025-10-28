@@ -35,55 +35,60 @@ export const PropertyCard = ({ property, variant = "info" }) => {
       onMouseEnter={() => swiperRef.current?.autoplay?.start()}
       onMouseLeave={() => swiperRef.current?.autoplay?.stop()}
     >
-<Swiper
-  modules={[Navigation, Pagination, Autoplay]}
-  navigation={true} // <-- just true, let Swiper handle the DOM
-  pagination={{ clickable: true }}
-  autoplay={{ delay: 2500, disableOnInteraction: false }}
-  spaceBetween={10}
-  slidesPerView={1}
-  onSwiper={(swiper) => {
-    swiperRef.current = swiper;
-    swiper.autoplay.stop();
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  }}
-  onSlideChange={(swiper) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  }}
-  style={{
-    borderRadius: "12px",
-    overflow: "hidden",
-    width: "100%",
-    height: "220px",
-    position: "relative",
-  }}
->
-  {property.images.map((url, i) => (
-    <SwiperSlide key={i}>
-      <img
-        src={url}
-        alt={`${property.title}-${i}`}
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        navigation={true}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        spaceBetween={10}
+        slidesPerView={1}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          swiper.autoplay.stop();
+          setIsBeginning(swiper.isBeginning);
+          setIsEnd(swiper.isEnd);
+        }}
+        onSlideChange={(swiper) => {
+          setIsBeginning(swiper.isBeginning);
+          setIsEnd(swiper.isEnd);
+        }}
         style={{
+          borderRadius: "12px",
+          overflow: "hidden",
           width: "100%",
           height: "220px",
-          objectFit: "cover",
-          display: "block",
+          position: "relative",
         }}
-      />
-    </SwiperSlide>
-  ))}
-
-  {/* REMOVE manual arrow divs */}
-</Swiper>
-
+      >
+        {property.images.map((url, i) => (
+          <SwiperSlide key={i}>
+            <img
+              src={url}
+              alt={`${property.title}-${i}`}
+              style={{
+                width: "100%",
+                height: "220px",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       <div className={infoClass}>
         <div>{property.status}</div>
         <div>{property.title}</div>
         <div>{property.description}</div>
+
+      <div className="property-stats">
+        <span>{property.bedrooms} Bed</span>
+        <span>{property.bathrooms} Bath</span>
+        <span>{property.sqft.toLocaleString()} sqft</span>
+      </div>
+
         <div>{property.price}</div>
+
         <button className={buttonClass} onClick={clickHandler}>
           View Details
         </button>

@@ -149,14 +149,31 @@ h2 {
 
 .properties-info {
   width: 100%;
-  overflow-y: scroll;
-  padding: 20px;
+  height: 100%;
+  padding: 15px 20px;
   box-sizing: border-box;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* always 2 columns */
   gap: 20px;
-  grid-auto-rows: minmax(0, auto);
-  min-width: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  align-content: start;
+}
+
+.property-stats {
+  display: flex;
+  gap: 10px;           /* space between spans */
+  color: #555;
+  margin: 5px 0;
+  flex-wrap: nowrap;    /* keep all in one line */
+  white-space: nowrap;  /* prevent wrapping */
+}
+
+.property-stats span {
+  flex-shrink: 0;       /* don’t let individual spans shrink */
+  font-size: medium;
 }
 
 .info-section {

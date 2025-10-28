@@ -24,6 +24,7 @@
     "description": "3 Luxury Cottages in the heart of Kirkland",
     "price": "Coming Soon",
     "status": "Under Construction",
+    "expected_completion": "Summer 2026",
     "lat": 47.669306,
     "lng": -122.175218,
     "bedrooms": 3,
@@ -41,6 +42,7 @@
     "description": "Modern Farmhouse in the heart of Bellevue",
     "price": "Coming Soon",
     "status": "Under Construction",
+    "expected_completion": "Spring 2026",
     "lat": 47.600711,
     "lng": -122.150038,
     "bedrooms": 5,
@@ -59,6 +61,7 @@
     "description": "Majestic manor with panoramic ocean views",
     "price": "Coming Soon",
     "status": "Under Construction",
+    "expected_completion": "Winter 2026",
     "lat": 47.613056,
     "lng": -122.064528,
     "bedrooms": 5,
@@ -77,6 +80,7 @@
     "description": "Exclusive penthouse with skyline vistas",
     "price": "$1,200,000",
     "status": "Under Construction",
+    "expected_completion": "Fall 2026",
     "lat": 47.851456,
     "lng": -121.997725,
     "bedrooms": 3,
@@ -91,88 +95,18 @@
   {
     "id": 6,
     "title": "Urban Loft",
-    "address": "987 Center St, Downtown",
+    "address": "10711 124th Ave Ne., Kirkland, WA 98033",
     "description": "Chic loft in a vibrant downtown neighborhood",
     "price": "$600,000",
     "status": "Sold",
-    "lat": 47.586307,
-    "lng":  -122.144485,
+    "lat": 47.695785,
+    "lng": -122.176092,
     "bedrooms": 2,
     "bathrooms": 1,
     "sqft": 1000,
     "images": [
       "https://picsum.photos/400/300?random=6",
       "https://picsum.photos/400/300?random=16"
-    ]
-  },
-  {
-    "id": 7,
-    "title": "Suburban Home",
-    "address": "159 Maple St, Suburbia",
-    "description": "Comfortable family home in a quiet suburb",
-    "price": "$400,000",
-    "status": "Available",
-    "lat": 47.745,
-    "lng": -121.975,
-    "bedrooms": 3,
-    "bathrooms": 2,
-    "sqft": 1800,
-    "images": [
-      "https://picsum.photos/400/300?random=7",
-      "https://picsum.photos/400/300?random=17",
-      "https://picsum.photos/400/300?random=27"
-    ]
-  },
-  {
-    "id": 8,
-    "title": "Country Cottage",
-    "address": "753 Pine Ln, Countryside",
-    "description": "Cozy cottage surrounded by nature",
-    "price": "$350,000",
-    "status": "Under Construction",
-    "lat": 47.735,
-    "lng": -121.965,
-    "bedrooms": 2,
-    "bathrooms": 1,
-    "sqft": 950,
-    "images": [
-      "https://picsum.photos/400/300?random=8",
-      "https://picsum.photos/400/300?random=18"
-    ]
-  },
-  {
-    "id": 9,
-    "title": "Modern Townhouse",
-    "address": "852 Cedar Ct, Urbanville",
-    "description": "Sleek townhouse with contemporary design",
-    "price": "$450,000",
-    "status": "Available",
-    "lat": 47.755,
-    "lng": -121.995,
-    "bedrooms": 3,
-    "bathrooms": 2,
-    "sqft": 1600,
-    "images": [
-      "https://picsum.photos/400/300?random=9",
-      "https://picsum.photos/400/300?random=19",
-      "https://picsum.photos/400/300?random=29"
-    ]
-  },
-  {
-    "id": 10,
-    "title": "Historic Estate",
-    "address": "951 Heritage Rd, Oldtown",
-    "description": "Grand estate with rich history and character",
-    "price": "$1,500,000",
-    "status": "Sold",
-    "lat": 47.720,
-    "lng": -121.980,
-    "bedrooms": 6,
-    "bathrooms": 5,
-    "sqft": 6000,
-    "images": [
-      "https://picsum.photos/400/300?random=10",
-      "https://picsum.photos/400/300?random=20"
     ]
   }
 ]
